@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    position: fixed;
+    height: 100vh;
+    transition: all 0.3s;
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #34495e;
+}
+
+.sidebar-header h2 {
+    margin-bottom: 10px;
+}
+
+.menu-items {
+    list-style: none;
+    padding: 20px 0;
+    font-size: 19px;
+}
+
+.menu-items li {
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.menu-items li:hover {
+    background-color: #34495e;
+}
+
+.menu-items li.active {
+    background-color: #3498db;
+    border-left: 5px solid #ecf0f1;
+}
+
+.menu-items li i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.content-area {
+    flex: 1;
+    margin-left: 250px;
+    padding: 30px;
+    transition: all 0.3s;
+}
+
+.content-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: none;
+    font-size: 20px;
+}
+
+.content-section.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.content-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+.content-section p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.version-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #3498db;
+    background-color: #f8f9fa;
+}
+
+.version-item h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.feature-item img, .feature-item i {
+    flex: 0 0 50px;
+    font-size: 30px;
+    margin-right: 15px;
+    color: #3498db;
+}
+
+.feature-item .feature-text {
+    flex: 1;
+}
+
+.feature-item h3 {
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    margin: 30px 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Mobile responsive */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    
+    .content-area {
+        margin-left: 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .sidebar.active {
+        width: 250px;
+        padding: 20px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.install-item {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(238, 199, 199, 0.3);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: installFadeInUp 0.5s forwards;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes installFadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.install-item:nth-child(1) { animation-delay: 0.1s; }
+.install-item:nth-child(2) { animation-delay: 0.3s; }
+.install-item:nth-child(3) { animation-delay: 0.5s; }
+.install-item:nth-child(4) { animation-delay: 0.7s; }
+.install-item:nth-child(5) { animation-delay: 0.9s; }
+
+.install-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    border: 2px solid #3498db;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: installPulse 2s infinite;
+}
+
+/* Hover effect for icon containers */
+.install-item:hover .install-icon-wrapper {
+    transform: scale(1.15) rotate(5deg);
+    border-radius: 50%;
+    border-color: #2ecc71;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.6);
+}
+
+/* Add ripple effect when hovering over icon */
+.install-icon-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(52, 152, 219, 0.8) 0%, rgba(52, 152, 219, 0) 70%);
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.install-item:hover .install-icon-wrapper::after {
+    opacity: 0.3;
+    transform: scale(1.5);
+}
+
+.install-icon-symbol {
+    font-size: 24px;
+    color: #3498db;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.install-item:hover .install-icon-symbol {
+    color: #2ecc71;
+    transform: scale(1.2);
+}
+
+.install-text-container {
+    flex-grow: 1;
+}
+
+.install-heading {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.install-description {
+    margin: 0;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+@keyframes installPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+    }
+}
+
+/* Highlight effect on hover */
+.install-item:hover {
+    background-color: #f3ecec;
+    transition: background-color 0.3s ease;
+}
+
+/* Scale effect on active */
+.install-item:active {
+    transform: scale(0.98);
+    transition: transform 0.2s ease;
+}
+
+.install-ripple {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: all 0.6s ease-out;
+}

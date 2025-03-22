@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "GameFusion Emulator [OFFICIAL]",
+  "version": "1.0",
+  "description": "Gamefusion emulator turns your device into a mini gaming PC, running GTA V, Dark Souls 2, and Assassin's Creed smoothly.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
